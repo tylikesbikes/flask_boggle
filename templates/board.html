@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Thanks for playing Boggle!
+{% endblock %}
+
+{% block body %}
+
+    <table class="gameBoard">
+    {% for row in board %}
+        <tr>
+        {% for ltr in row %}
+            <td class="gameBoard">{{ltr}}</td>
+        {% endfor %}
+        </tr>
+
+    {% endfor %}
+    </table>
+
+    <form name="guess" method="POST" action="/" id="guess_form">
+        <input type="text" id="guess_text" width=25 name="guess_word" autocomplete="off" autofocus>
+        <button id="submit_button">Submit Guess</button>
+    </form>
+
+    <p id="last_guess">
+        
+    </p>
+
+
+    <p id="scoresummary">
+        <span id="score_text">Your score is now</span> <span id="score">0</span>
+    </p>
+
+    <p id="time_section">
+        Time left: <span id="timer"></span>
+    </p>
+
+    <p id="final_details">
+        <p id="new_record">
+
+        </p>
+        <p id="last_game">
+            <span>Last game: </span><span id="last_score"></span>
+        </p>
+        <p id="high_score_text">
+            <span>Current High Score: </span><span id="high_score"></span>
+        </p>
+    </p>
+
+    <p>
+        <span>You've played </span><span id="game_count"></span><span> games so far</span>
+    </p>
+
+
+
+{% endblock %}
