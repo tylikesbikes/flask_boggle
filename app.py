@@ -20,7 +20,7 @@ def show_board():
     board = boggle_game.make_board()
     session['board'] = board
 
-    return render_template("board.html", board = session['board'])
+    return render_template("board.html", board = session['board'], times_played=session['times_played'],high_score=session['high_score'])
 
 @app.route("/guess",methods=['GET'])
 def check_guess():
@@ -45,3 +45,7 @@ def end_game():
         new_record='yes'
         
     return jsonify ({'new_record':new_record,'last_score':last_score,'high_score':session['high_score'],'times_played':plays})
+
+@app.route('/hs',methods=['GET'])
+def high_score():
+    return jsonify({'hs':session['high_score']})
