@@ -1,5 +1,4 @@
 from flask import Flask, redirect, render_template, flash, session, request, jsonify
-#from flask_debugtoolbar import DebugToolbarExtension
 from boggle import Boggle
 
 app = Flask(__name__)
